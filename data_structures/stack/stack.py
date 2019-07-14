@@ -16,6 +16,22 @@ class Stack:
         self.next_index += 1
         self.num_elements += 1
 
+    def pop(self):
+        if self.is_empty():
+            self.next_index = 0
+            return None
+        
+        self.next_index -= 1
+        self.num_elements -= 1
+        
+        return self.arr[self.next_index]
+
+    def size(self):
+        return self.num_elements
+
+    def is_empty(self):
+        return self.size == 0
+
     def _handle_stack_capacity_full(self):
         old_arr = self.arr
 
@@ -23,6 +39,7 @@ class Stack:
 
         for index, element in enumerate(old_arr):
             self.arr[index] = element
+
 
 sta = Stack()
 print(sta.arr)

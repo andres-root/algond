@@ -46,6 +46,25 @@ class Tree():
     def get_root(self):
         return self.root
 
+    def pre_order(self, node):
+        if node:
+            print(node.value)
+            self.pre_order(node.left)
+            self.pre_order(node.right)
+    
+    def in_order(self, node):
+        if node:
+            self.pre_order(node.left)
+            print(node.value)
+            self.pre_order(node.right)
+    
+    def post_order(self, node):
+        if node:
+            self.pre_order(node.left)
+            self.pre_order(node.right)
+            print(node.value)
+            
+
 
 if __name__ == '__main__':
     tree = Tree('apple')

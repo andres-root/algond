@@ -134,13 +134,11 @@ class Tree():
                 self.insert_with_recursion(node.get_left_child(), new_node)
             else:
                 node.set_right_child(new_node)
-                break
         else:
             if node.has_right_child():
                 self.insert_with_recursion(node.get_right_child(), new_node)
             else:
                 node.set_right_child(new_node)
-                break
                     
     def __repr__(self):
         level = 0

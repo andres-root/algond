@@ -25,7 +25,6 @@ class HashMap:
         for c in key:
             hash_code += ord(c) * current_coefficient
             current_coefficient = self.prime
-            current_coefficient = current_coefficient
 
         return hash_code
 

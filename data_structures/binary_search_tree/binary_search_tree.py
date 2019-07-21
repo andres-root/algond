@@ -106,7 +106,7 @@ class Tree():
             comparison = self.compare(node, new_node)
 
             if comparison == 0:
-                node.value = new_node.value
+                node.set_value(new_node.get_value())
             elif comparison < 0:
                 if node.has_left_child():
                     node = node.get_left_child()
@@ -128,7 +128,7 @@ class Tree():
         comparison = self.compare(node, new_node)
 
         if comparison == 0:
-            node.value = new_node.value
+            node.set_value(new_node.get_value())
         elif comparison < 0:
             if node.has_left_child():
                 self.insert_with_recursion(node.get_left_child(), new_node)

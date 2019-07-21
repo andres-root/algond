@@ -1,50 +1,41 @@
 #!/usr/bin/env python3
 
 
-class HashTable:
-    def __init__(self):
-        self.table = [None]*10000
-
-    def store(self, string):
-        hash_value = self.calculate_hash_value(string)
-
-        if hash_value is not -1:
-            if self.table[hash_value] is not None:
-                self.table[hash_value].append(string)
-            else:
-                self.table[hash_value] = [string]
+class HashMap:
+    def __init__(self, initial_size=10):
+        self.bucket = [None for _ in range(initial_size)]
+        self.prime = 37
+        self.num_entries = 0
     
-    def lookup(self, string):
-        hash_value = self.calculate_hash_value(string)
-        
-        if hash_value is not -1:
-            if self.table[hash_value] is not None:
-                if string in self.table[hash_value]:
-                    return hash_value
-        
-        return -1
+    def put(self, key, value):
+        pass
+    
+    def get(self, key):
+        pass
+    
+    def get_bucket_index(self, key):
+        return self.get_hash_code(key)
+    
+    def get_hash_code(self, key):
+        key = str(key)
+        num_buckets = len(self.bucket)
+        current_coefficient = 1
+        hash_code = 0
 
-    def calculate_hash_value(self, string):
-        value = ord(string[0])*100 + ord(string[1])
-        return value
+        for c in key:
+            hash_code += ord(c) * current_coefficient
+            current_coefficient = self.prime
+            current_coefficient = current_coefficient
 
-# Setup
-hash_table = HashTable()
+        return hash_code
 
-# Test calculate_hash_value
-# Should be 8568
-print (hash_table.calculate_hash_value('UDACITY'))
+# Testing
+hash_map = HashMap()
 
-# Test lookup edge case
-# Should be -1
-print (hash_table.lookup('UDACITY'))
+bucket_index = hash_map.get_bucket_index('abcd')
+print(bucket_index)
 
-# Test store
-hash_table.store('UDACITY')
-# Should be 8568
-print (hash_table.lookup('UDACITY'))
+hash_map = HashMap()
 
-# Test store edge case
-hash_table.store('UDACIOUS')
-# Should be 8568
-print (hash_table.lookup('UDACIOUS'))
+bucket_index = hash_map.get_bucket_index('bcda')
+print(bucket_index)

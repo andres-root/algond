@@ -35,6 +35,6 @@ def quick_sort(arr, l, r):
     
 
 if __name__ == '__main__':
-    arr = [8, 3, 1, 7, 0, 10, 2, 9, 20, 45, 21]
+    arr = [8, 3, 1, 7, 0, 10, 2]
     quick_sort(arr, 0, (len(arr) - 1))
     print(arr)

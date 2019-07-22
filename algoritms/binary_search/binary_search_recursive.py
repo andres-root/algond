@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 
-def binary_search_recursive(array, target, low=0, high=(len(array) - 1)):
+def binary_search_recursive(array, target, low=0, high=(len(array) - 1), positions=[]):
     '''Binary search algorithm using recursion
     args:
       array: a sorted array of items of the same type
@@ -15,9 +15,10 @@ def binary_search_recursive(array, target, low=0, high=(len(array) - 1)):
         mid = (low + high)//2
 
         if array[mid] == target:
-            return mid
+            return positions
 
         if target < array[mid]:
+            positions.append(mid)
             return binary_search_recursive(array, target, low, (mid - 1))
         else:
             return binary_search_recursive(array, target, (mid + 1), high)

@@ -19,11 +19,11 @@ class Graph:
         self.nodes = node_list
         
     def add_edge(self, node1, node2):
-        if(node1 in self.nodes and node2 in self.nodes):
+        if (node1 in self.nodes and node2 in self.nodes):
             node1.add_child(node2)
             node2.add_child(node1)
             
     def remove_edge(self, node1, node2):
-        if(node1 in self.nodes and node2 in self.nodes):
+        if (node1 in self.nodes and node2 in self.nodes):
             node1.remove_child(node2)
             node2.remove_child(node1)

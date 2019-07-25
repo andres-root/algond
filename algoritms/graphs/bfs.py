@@ -9,7 +9,7 @@ def bfs_search(root, value):
     
     while len(queue) > 0:
         current_node = queue.pop(0)
-        queue.append(current_node)
+        visited.append(current_node)
 
         if current_node.value == value:
             return current_node

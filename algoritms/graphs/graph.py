@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
     
 
-class GraphNode(object):
+class GraphNode:
     def __init__(self, val):
         self.value = val
         self.children = []
@@ -14,7 +14,7 @@ class GraphNode(object):
             self.children.remove(del_node)
 
 
-class Graph(object):
+class Graph:
     def __init__(self, node_list):
         self.nodes = node_list
         

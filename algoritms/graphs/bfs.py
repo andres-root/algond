@@ -3,15 +3,15 @@
 from graph import Graph, GraphNode
 
 
-def bfs_search(root_node, search_value):
+def bfs_search(root, value):
     visited = []
-    queue = [root_node]
+    queue = [root]
     
     while len(queue) > 0:
         current_node = queue.pop(0)
         queue.append(current_node)
 
-        if current_node.value == search_value:
+        if current_node.value == value:
             return current_node
 
         for child in current_node.children:

@@ -8,7 +8,6 @@ def dfs_search(root, value):
     stack = [root]
 
     while len(stack) > 0:
-        print(visited)
         current_node = stack.pop()
         visited.append(current_node)
 

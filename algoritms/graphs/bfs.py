@@ -8,7 +8,6 @@ def bfs_search(root, value):
     queue = [root]
     
     while len(queue) > 0:
-        print(visited)
         current_node = queue.pop(0)
         visited.append(current_node)
 

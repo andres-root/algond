@@ -12,7 +12,7 @@ def binary_search_iterative(array, target):
       -1: if the target is not found
     '''
     low = 0
-    high = 0
+    high = len(array) - 1
 
     while low <= high:
         mid = (low + high)//2

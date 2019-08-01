@@ -1,7 +1,38 @@
 #!/usr/bin/env python3
 
 
-def rearrange_digits(input_list):
+def merge(l, r):
+    m = []
+    li = 0
+    ri = 0
+
+    while li < len(l) and ri < len(r):
+        if l[li] > r[ri]:
+            m.append(r[ri])
+            ri += 1
+        else:
+            m.append(l[li])
+            li += 1
+
+    m += l[li:]
+    m += r[ri:]
+
+    return m
+
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+
+    m = len(arr)//2
+    
+    l = merge_sort(arr[:m])
+    r = merge_sort(arr[m:])
+
+    return merge(l, r)
+
+
+
+def rearrange_digits(arr):
     """
     Rearrange Array Elements so as to form two number such that their sum is maximum.
 
@@ -10,25 +41,9 @@ def rearrange_digits(input_list):
     Returns:
        (int),(int): Two maximum sums
     """
-    
-
-def test_function(test_case):
-    output = rearrange_digits(test_case[0])
-    solution = test_case[1]
-    if sum(output) == sum(solution):
-        print("Pass")
-    else:
-        print("Fail")
-
-def test_function(test_case):
-    input_list = test_case[0]
-    number = test_case[1]
-    if linear_search(input_list, number) == rotated_binary_search(input_list, number):
-        print("Pass")
-    else:
-        print("Fail")
+    return merge_sort(arr)
 
 
 if __name__ == '__main__':
-    test_function([[1, 2, 3, 4, 5], [542, 31]])
-    test_case = [[4, 6, 2, 5, 9, 8], [964, 852]]
+    arr = [2, 5, 7, 3, 1, 8, 9]
+    print(rearrange_digits(arr))

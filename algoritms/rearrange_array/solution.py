@@ -44,6 +44,15 @@ def rearrange_digits(arr):
     return merge_sort(arr)
 
 
+def test_function(test_case):
+    output = rearrange_digits(test_case[0])
+    solution = test_case[1]
+    if sum(output) == sum(solution):
+        print("Pass")
+    else:
+        print("Fail")
+
+
 if __name__ == '__main__':
     arr = [2, 5, 7, 3, 1, 8, 9]
     print(rearrange_digits(arr))

@@ -1,5 +1,6 @@
-### Dutch National Flag Problem
+### Deep Reverse
 
-Given an input array consisting on only 0, 1, and 2, sort the array in a single traversal. You're not allowed to use any sorting function that Python provides.
+Define a procedure, deep_reverse, that takes as input a list, and returns a new list that is the deep reverse of the input list.
+This means it reverses all the elements in the list, and if any of those elements are lists themselves, reverses all the elements in the inner list, all the way down.
 
-Note: O(n) does not necessarily mean single-traversal. For e.g. if you traverse the array twice, that would still be an O(n) solution but it will not count as single traversal.
+    Note: The procedure must not change the input list itself.

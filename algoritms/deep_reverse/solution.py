@@ -31,10 +31,11 @@ def test_function(test_case):
     
     output = deep_reverse(arr)
     print(output)
+    
     if output == solution:
-        print("Pass")
+        return 'Pass'
     else:
-        print("False")
+        return 'Fail'
 
 
 if __name__ == '__main__':
@@ -61,3 +62,4 @@ if __name__ == '__main__':
     test_case = [arr, solution]
     result = test_function(test_case)
     print(result)
+    

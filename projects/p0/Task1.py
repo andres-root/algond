@@ -48,4 +48,4 @@ if __name__ == '__main__':
     records = read_files()
 
     unique_records_count = count_unique_records(records)
-    print(format_message(unique_records_count))
+    print(format_message(unique_records_count)

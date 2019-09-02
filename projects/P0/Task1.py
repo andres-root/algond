@@ -36,17 +36,17 @@ def count_unique_records(records):
     "There are <count> different telephone numbers in the records."
     """
     numbers = set()
-    print(records[0][0].strip().replace(' ', ''))
 
     for record in records:
         numbers.add(record[0])
         numbers.add(record[1])
 
-    return numbers
+    return len(numbers)
 
 
 if __name__ == '__main__':
     records = read_files()
 
     unique_records_count = count_unique_records(records)
+    
     print(unique_records_count)

@@ -2,6 +2,7 @@
 
 import csv
 import os
+from pathlib import Path
 
 
 def read_files():
@@ -9,19 +10,23 @@ def read_files():
     Read file into texts and calls.
     It's ok if you don't understand how to read files.
     """
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    
-    with open('texts.csv', 'r') as f:
+    dir_path = Path(os.path.dirname(os.path.realpath(__file__)))
+
+    with open((dir_path / 'texts.csv'), 'r') as f:
         reader = csv.reader(f)
         texts = list(reader)
 
-    with open('calls.csv', 'r') as f:
+    with open((dir_path / 'calls.csv'), 'r') as f:
         reader = csv.reader(f)
         calls = list(reader)
 
+    return texts + calls
 
 def format_message(x):
     return 'There are {} different telephone numbers in the records.'.format(x)
+
+def clean_text(text):
+    return text.strip().replace(' ', '')
 
 def count_unique_records(records):    
     """
@@ -31,15 +36,17 @@ def count_unique_records(records):
     "There are <count> different telephone numbers in the records."
     """
     numbers = set()
-    for call in range(len(records)):
-        numbers.add(call[0])
-        numbers.add(call[1])
+    print(records[0][0].strip().replace(' ', ''))
 
-    records_set = set(records)
-    return records_set.size
+    for record in records:
+        numbers.add(record[0])
+        numbers.add(record[1])
+
+    return numbers
 
 
 if __name__ == '__main__':
-    unique_records_count = count_unique_records(calls)
+    records = read_files()
 
+    unique_records_count = count_unique_records(records)
     print(unique_records_count)

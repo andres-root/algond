@@ -22,8 +22,11 @@ def read_files():
 def is_bangalore_phone(phone):
     return re.search('\(080\)', phone) is not None
 
+def find_area_code(phone):
+    return re.search('\(.*?\)', phone)
+
 def clean_text(text):
-    return text.strip().replace(' ', '').replace('(080)', '')
+    return text.strip().replace(' ', '')
 
 def print_message(records):
     print('The numbers called by people in Bangalore have codes:')
@@ -63,14 +66,20 @@ def bangalore_codes(records):
     to other fixed lines in Bangalore."
     The percentage should have 2 decimal digits
     """
-    bangalore_phones = []
+    bangalore = []
+
+    bangalore_total = 0
     
     for record in records:
         if is_bangalore_phone(record[0]):
-            phone = int(clean_text(record[0]))
+            phone = int(clean_text(record[1]))
             
             if phone not in bangalore_phones:
-                bangalore_phones.append(phone)
+                if find_area_code(phone) is None:
+                    bangalore.append(phone[:4])
+                else:
+                    bangalore.append(find_area_code(phone))
+
         
     return sorted(bangalore_phones)
 

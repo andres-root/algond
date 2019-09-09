@@ -74,14 +74,14 @@ def bangalore_codes(records):
         if is_bangalore_phone(record[0]):
             phone = int(clean_text(record[1]))
             
-            if phone not in bangalore_phones:
+            if phone not in records:
                 if find_area_code(phone) is None:
                     bangalore.append(phone[:4])
                 else:
                     bangalore.append(find_area_code(phone))
 
         
-    return sorted(bangalore_phones)
+    return sorted(bangalore)
 
 
 if __name__ == '__main__':

@@ -89,7 +89,7 @@ def bangalore_codes(records):
             
             bangalore.append(code)
 
-    return sorted(list(set(bangalore))), int(round(bangalore_total / total, 2) * 100)
+    return sorted(list(set(bangalore))), round(bangalore_total / total, 2)
 
 
 if __name__ == '__main__':
